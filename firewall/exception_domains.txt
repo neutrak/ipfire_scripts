@@ -1,0 +1,53 @@
+#domains to look up the ip for, and make an exception to, in the blocklist
+
+#blocklist servers
+list.iblocklist.com
+
+#dns servers
+b.resolvers.Level3.net
+google-public-dns-b.google.com
+
+#cert authorities
+
+#netflix
+www.netflix.com
+assets.nflxext.com
+www3.ext-s.nflximg.net
+
+#imgur
+www.imgur.com
+i.imgur.com
+
+#wikipedia
+en.wikipedia.org
+upload.wikimedia.org
+login.wikimedia.org
+
+#google
+www.google.com
+www.gmail.com
+
+
+#steam
+store.steampowered.com
+steampowered.com
+
+#duckduckgo
+www.duckduckgo.com
+
+#slashdot
+slashdot.org
+
+#bbc
+www.bbc.co.uk
+www.bbc.com
+
+#ted
+ted.com
+www.ted.com
+
+#gifsound
+gifsound.com
+www.gifsound.com
+
+
