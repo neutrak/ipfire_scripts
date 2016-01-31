@@ -27,7 +27,6 @@ login.wikimedia.org
 www.google.com
 www.gmail.com
 
-
 #steam
 store.steampowered.com
 steampowered.com
@@ -49,5 +48,10 @@ www.ted.com
 #gifsound
 gifsound.com
 www.gifsound.com
+
+#yunohost
+yunohost.org
+www.yunohost.org
+forum.yunohost.org
 
 
