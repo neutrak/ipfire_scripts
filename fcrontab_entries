@@ -1,0 +1,7 @@
+# Update blacklists (such as peerguardian and attack ips) once a week
+# starting at 1am on tuesday
+0 1 * * 2 /root/scripts/firewall/load_blocklists.sh update
+
+# Reconnect to a different random US vpn at 2am every thursday
+0 2 * * 4 /root/scripts/openvpn/vpn_connect.sh
+
