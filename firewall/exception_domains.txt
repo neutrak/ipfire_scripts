@@ -54,4 +54,7 @@ yunohost.org
 www.yunohost.org
 forum.yunohost.org
 
+#facebook image hosting
+scontent-arn2-1.xx.fbcdn.net
+
 

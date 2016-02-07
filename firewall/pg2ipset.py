@@ -98,17 +98,21 @@ def pg2ipset(fin='-',fout='-',set_name='IPFILTER',verbose=False,new_cmd_syntax=T
 					ofp.write('-A '+set_name+' '+from_addr+'-'+to_addr+"\n")
 				elif(rangemask):
 					rangemask_addr=ip_rangemask.ip_rangemask(from_addr,to_addr)
+					except_this=False
 					#for each exception
 					for ip in except_ips:
 						#if this exception is part of the subnet being specified
 						shared,larger=ip_rangemask.shared_range(ip+'/32',rangemask_addr)
-						if(shared and (larger==rangemask_addr)):
+#						if(shared and (larger==rangemask_addr)):
+						if(shared):
 							#TODO: split this into smaller subnets and omit the exception
+							except_this=True
 							break
+					
 					#only add the rangemask if it didn't hit an exception
 					#this is slightly less secure than ideal (misses some ips that should be blocked)
 					#but is still way better than no blocking
-					else:
+					if(not except_this):
 						ofp.write('add '+set_name+' '+rangemask_addr+"\n")
 				else:
 					ofp.write('add '+set_name+' '+from_addr+'-'+to_addr+"\n")
