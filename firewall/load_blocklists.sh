@@ -12,35 +12,49 @@ fi
 
 unset blocklists
 
+#the following format is used for blocklist entries
+# offset 0 -> url or local file path
+# offset 1 -> blocklist name
+# offset 2 -> ipset name to make
+# offset 3 -> online or local?
+# offset 4 -> filter through which to run the list (can be used to select only specific entries or exclude particular entries, etc.)
+
+
 #blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=xshktygkujudfnjfioro&fileformat=p2p&archiveformat=gz'
 #blocklists[${#blocklists[@]}]='bluetack-microsoft'
 #blocklists[${#blocklists[@]}]='MICROSOFT'
 #blocklists[${#blocklists[@]}]='online'
+#blocklists[${#blocklists[@]}]='cat'
 
 blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=llvtlsjyoyiczbkjsxpf&fileformat=p2p&archiveformat=gz'
 blocklists[${#blocklists[@]}]='bluetack-spyware'
 blocklists[${#blocklists[@]}]='SPYWARE'
 blocklists[${#blocklists[@]}]='online'
+blocklists[${#blocklists[@]}]='cat'
 
 blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=dgxtneitpuvgqqcpfulq&fileformat=p2p&archiveformat=gz'
 blocklists[${#blocklists[@]}]='bluetack-ads'
 blocklists[${#blocklists[@]}]='ADS'
 blocklists[${#blocklists[@]}]='online'
+blocklists[${#blocklists[@]}]='cat'
 
 #blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=imlmncgrkbnacgcwfjvh&fileformat=p2p&archiveformat=gz'
 #blocklists[${#blocklists[@]}]='bluetack-edu'
 #blocklists[${#blocklists[@]}]='EDU'
 #blocklists[${#blocklists[@]}]='online'
+#blocklists[${#blocklists[@]}]='cat'
 
 blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=ydxerpxkpcfqjaybcssw&fileformat=p2p&archiveformat=gz'
 blocklists[${#blocklists[@]}]='bluetack-level1'
 blocklists[${#blocklists[@]}]='LEVEL1'
 blocklists[${#blocklists[@]}]='online'
+blocklists[${#blocklists[@]}]='egrep -v -i "(VALVE CORP)|(VALVE SOFT)"'
 
 blocklists[${#blocklists[@]}]='domain_blocklist.gz'
 blocklists[${#blocklists[@]}]='manual-domains'
 blocklists[${#blocklists[@]}]='MANUAL'
 blocklists[${#blocklists[@]}]='local'
+blocklists[${#blocklists[@]}]='cat'
 
 blocklists[${#blocklists[@]}]='' #end of list signal
 
@@ -86,10 +100,10 @@ case "$1" in
 			#load the blocklist into an IPSet called whatever is specified by the array entry
 			if [ "${blocklists[$(($n+3))]}" == 'online' ]
 			then
-				curl -L "${blocklists[$n]}" | gunzip -c | pg2ipset.py - - "${blocklists[$(($n+2))]}" | ipset -
+				curl -L "${blocklists[$n]}" | gunzip -c | bash -c "${blocklists[$(($n+4))]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}" | ipset -
 			elif [ "${blocklists[$(($n+3))]}" == 'local' ]
 			then
-				zcat "${blocklists[$n]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}" | ipset -
+				zcat "${blocklists[$n]}" | bash -c "${blocklists[$(($n+4))]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}" | ipset -
 			fi
 			
 			#add iptables rules
@@ -115,7 +129,7 @@ case "$1" in
 #			iptables -t nat -I OUTPUT -m set --match-set "${blocklists[$(($n+2))]}" dst -j REJECT
 
 			
-			n=$(($n+4))
+			n=$(($n+5))
 		done
 		;;
 		
@@ -131,15 +145,15 @@ case "$1" in
 			#then deletes the old list, leaving no unprotected gap in the middle.
 			if [ "${blocklists[$(($n+3))]}" == 'online' ]
 			then
-				curl -L "${blocklists[$n]}" | gunzip -c | pg2ipset.py - - "${blocklists[$(($n+2))]}"-NEW | ipset -
+				curl -L "${blocklists[$n]}" | gunzip -c | bash -c "${blocklists[$(($n+4))]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}"-NEW | ipset -
 			elif [ "${blocklists[$(($n+3))]}" == 'local' ]
 			then
-				zcat "${blocklists[$n]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}"-NEW | ipset -
+				zcat "${blocklists[$n]}" | bash -c "${blocklists[$(($n+4))]}" | pg2ipset.py - - "${blocklists[$(($n+2))]}"-NEW | ipset -
 			fi
 			ipset -W "${blocklists[$(($n+2))]}" "${blocklists[$(($n+2))]}"-NEW
 			ipset -X "${blocklists[$(($n+2))]}"-NEW
 			
-			n=$(($n+4))
+			n=$(($n+5))
 		done
 		;;
 	
@@ -171,7 +185,7 @@ case "$1" in
 			#destroy the set
 			ipset -X "${blocklists[$(($n+2))]}"
 			
-			n=$(($n+4))
+			n=$(($n+5))
 		done
 		;;
 	
@@ -191,7 +205,7 @@ case "$1" in
 				echo "Warning: ${blocklists[$(($n+1))]} is from a local file, and will not be downloaded"
 			fi
 			
-			n=$(($n+4))
+			n=$(($n+5))
 		done
 		;;
 	
