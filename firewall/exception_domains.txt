@@ -60,4 +60,12 @@ scontent-arn2-1.xx.fbcdn.net
 #twitter
 twitter.com
 
+#godaddy
+dcc.godaddy.com
+
+#roundcube
+trac.roundcube.net
+
+#mozilla
+forums.mozillazine.org
 
