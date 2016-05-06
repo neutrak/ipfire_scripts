@@ -69,3 +69,15 @@ trac.roundcube.net
 #mozilla
 forums.mozillazine.org
 
+#guitar chords
+www.e-chords.com
+
+#government
+www.ksrevenue.org
+
+#libraries
+www.jocolibrary.org
+
+#misc
+www.dov-gadol.ca
+
