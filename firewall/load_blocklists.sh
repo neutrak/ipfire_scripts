@@ -19,6 +19,11 @@ unset blocklists
 # offset 3 -> online or local?
 # offset 4 -> filter through which to run the list (can be used to select only specific entries or exclude particular entries, etc.)
 
+blocklists[${#blocklists[@]}]='domain_blocklist.gz'
+blocklists[${#blocklists[@]}]='manual-domains'
+blocklists[${#blocklists[@]}]='MANUAL'
+blocklists[${#blocklists[@]}]='local'
+blocklists[${#blocklists[@]}]='cat'
 
 #blocklists[${#blocklists[@]}]='http://list.iblocklist.com/?list=xshktygkujudfnjfioro&fileformat=p2p&archiveformat=gz'
 #blocklists[${#blocklists[@]}]='bluetack-microsoft'
@@ -49,12 +54,6 @@ blocklists[${#blocklists[@]}]='bluetack-level1'
 blocklists[${#blocklists[@]}]='LEVEL1'
 blocklists[${#blocklists[@]}]='online'
 blocklists[${#blocklists[@]}]='egrep -v -i "(VALVE CORP)|(VALVE SOFT)"'
-
-blocklists[${#blocklists[@]}]='domain_blocklist.gz'
-blocklists[${#blocklists[@]}]='manual-domains'
-blocklists[${#blocklists[@]}]='MANUAL'
-blocklists[${#blocklists[@]}]='local'
-blocklists[${#blocklists[@]}]='cat'
 
 blocklists[${#blocklists[@]}]='' #end of list signal
 
