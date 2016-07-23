@@ -78,6 +78,13 @@ www.ksrevenue.org
 #libraries
 www.jocolibrary.org
 
+#torrent trackers
+www.kat.cr
+kat.cr
+www.torrentreactor.com
+torrentreactor.com
+www.torrentroom.com
+
 #misc
 www.dov-gadol.ca
 uploaded.net
