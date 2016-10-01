@@ -30,6 +30,10 @@ mv "${sel_file}_authfixed" "$sel_file"
 #kill any existing openvpn connections
 killall openvpn
 
+#verbose
+echo "Connecting to server defined by ${sel_file}"
+echo "..."
+
 #create the openvpn connection, with stored login credentials
 openvpn "${sel_file}" &
 
