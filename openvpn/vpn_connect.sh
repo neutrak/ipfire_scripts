@@ -12,9 +12,10 @@ cd /etc/openvpn/
 files=(/etc/openvpn/us*.*tcp443.ovpn /etc/openvpn/ca*.*tcp443.ovpn)
 
 #if a particular file or list of files was specified, then use those
-if [ "$?" -gt 1 ]
+if [ "$#" -ge 1 ]
 then
-	files="$*"
+	unset files
+	files=("$@")
 fi
 
 #selected file to actually use for a connection
