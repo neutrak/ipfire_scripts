@@ -98,4 +98,6 @@ tools.ietf.org
 www.pcworld.com
 poorlydrawnlines.com
 www.mayflower.com
+www.ssllabs.com
+www.aljazeera.com
 
