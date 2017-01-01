@@ -40,6 +40,7 @@ slashdot.org
 #bbc
 www.bbc.co.uk
 www.bbc.com
+feeds.bbci.co.uk
 
 #ted
 ted.com
