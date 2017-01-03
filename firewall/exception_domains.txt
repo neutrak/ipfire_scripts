@@ -17,6 +17,7 @@ www3.ext-s.nflximg.net
 #imgur
 www.imgur.com
 i.imgur.com
+imgur.com
 
 #wikipedia
 en.wikipedia.org
