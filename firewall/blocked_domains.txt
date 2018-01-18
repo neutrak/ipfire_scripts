@@ -813,3 +813,7 @@ www.static.ak.fbcdn.net
 #newsroom.fb.com
 #investor.fb.com
 
+#google tracking domains
+google-analytics.com
+googletagmanager.com
+
