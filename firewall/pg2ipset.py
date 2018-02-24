@@ -24,7 +24,10 @@ def get_except_ips(filename='exception_domains.txt'):
 		
 		#get the ips associated with this domain from nslookup
 		try:
-			ips=subprocess.check_output('nslookup '+line+' | fgrep -A 100 answer | fgrep \'Address\' | egrep -o "([0-9]*\.)*[0-9]*"',shell=True).split("\n")
+			#TODO: support ipv6 addresses!
+#			ips=subprocess.check_output('nslookup '+line+' | fgrep -A 100 answer | fgrep \'Address\' | egrep -o "([0-9]*\.)*[0-9]*"',shell=True).split("\n")
+			#for now just ignore ipv6 lines
+			ips=subprocess.check_output('nslookup '+line+' | fgrep -A 100 answer | fgrep \'Address\' | egrep -v \'[0-9a-f]:\' | egrep -o "([0-9]*\.)*[0-9]*"',shell=True).split("\n")
 		except(subprocess.CalledProcessError):
 			print('Err: IP not found for domain '+line+' (this could be a DNS or domain exception file error)')
 			continue
