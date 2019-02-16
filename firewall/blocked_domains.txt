@@ -817,3 +817,7 @@ www.static.ak.fbcdn.net
 google-analytics.com
 googletagmanager.com
 
+#known malware
+d4uk.7h4uk.com
+cache.windowsdefenderhost.com
+
