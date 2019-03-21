@@ -58,7 +58,7 @@ blocklists[${#blocklists[@]}]='egrep -v -i "(VALVE CORP)|(VALVE SOFT)"'
 blocklists[${#blocklists[@]}]='' #end of list signal
 
 #change to the directory that stores the local blocklist file(s)
-cd /root/scripts/firewall/
+cd /root/programs/ipfire_scripts/firewall/
 #cd /home/neutrak/programs/ipfire_scripts/firewall/ #testing
 
 #for a stand-alone machine, add rules to the filter table

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #copy auth credentials to the right spot
-cp /root/scripts/openvpn/auth.txt /etc/openvpn/
+cp /root/programs/ipfire_scripts/openvpn/auth.txt /etc/openvpn/
 #change directory to where the script expects the auth file to be
 cd /etc/openvpn/
 
