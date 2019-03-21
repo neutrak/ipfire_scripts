@@ -9,7 +9,10 @@ cd /etc/openvpn/
 #files="/etc/openvpn/*.ovpn"
 
 #get the US and CA tcp configurations only
-files=(/etc/openvpn/us*.*tcp443.ovpn /etc/openvpn/ca*.*tcp443.ovpn)
+#files=(/etc/openvpn/us*.*tcp443.ovpn /etc/openvpn/ca*.*tcp443.ovpn)
+
+#US configurations only
+files=(/etc/openvpn/us*.*tcp443.ovpn /etc/openvpn/us*.*udp1194.ovpn)
 
 #if a particular file or list of files was specified, then use those
 if [ "$#" -ge 1 ]
