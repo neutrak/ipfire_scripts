@@ -1,4 +1,8 @@
 #nordvpn
-nameserver 162.242.211.137
-nameserver 78.46.223.24
+nameserver 103.86.96.100
+nameserver 103.86.99.100
+
+#sci-hub
+nameserver 80.82.77.83
+nameserver 80.82.77.84
 

@@ -1,3 +1,4 @@
-sleep 120 && /root/scripts/openvpn/vpn_connect.sh &
-sleep 300 && /root/scripts/firewall/load_blocklists.sh load &
+modprobe tun
+sleep 120 && /root/programs/ipfire_scripts/openvpn/vpn_connect.sh &
+sleep 300 && /root/programs/ipfire_scripts/firewall/load_blocklists.sh load &
 
