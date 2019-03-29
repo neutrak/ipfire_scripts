@@ -35,6 +35,10 @@ steampowered.com
 #duckduckgo
 www.duckduckgo.com
 
+# eff
+eff.org
+www.eff.org
+
 #slashdot
 slashdot.org
 
@@ -114,4 +118,5 @@ tabs.ultimate-guitar.com
 imgs.xkcd.com
 
 i.imgur.com
+
 
