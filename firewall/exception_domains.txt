@@ -73,7 +73,9 @@ dcc.godaddy.com
 trac.roundcube.net
 
 #mozilla
+mozilla.org
 forums.mozillazine.org
+developer.mozilla.org
 
 #guitar chords
 www.e-chords.com
