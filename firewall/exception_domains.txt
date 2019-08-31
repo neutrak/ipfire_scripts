@@ -92,6 +92,16 @@ kat.cr
 www.torrentreactor.com
 torrentreactor.com
 www.torrentroom.com
+torrents.endlessm.com
+
+#image hosts
+imgs.xkcd.com
+i.imgur.com
+
+#rust documentation
+doc.rust-lang.org
+rust-lang.org
+
 
 #misc
 www.dov-gadol.ca
@@ -116,9 +126,4 @@ www.duckduckgo.com
 
 www.ultimate-guitar.com
 tabs.ultimate-guitar.com
-
-imgs.xkcd.com
-
-i.imgur.com
-
 
