@@ -42,6 +42,11 @@ www.eff.org
 #slashdot
 slashdot.org
 
+#ars technica
+arstechnica.com
+www.arstechnica.com
+
+
 #bbc
 www.bbc.co.uk
 www.bbc.com
@@ -76,6 +81,7 @@ trac.roundcube.net
 mozilla.org
 forums.mozillazine.org
 developer.mozilla.org
+thimble.mozilla.org
 
 #guitar chords
 www.e-chords.com
