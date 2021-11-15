@@ -5,3 +5,7 @@
 # Reconnect to a different random US vpn at 2am every thursday
 0 2 * * 4 /root/programs/ipfire_scripts/openvpn/vpn_connect.sh
 
+#every 15 minutes check if our vpn connection is up (by checking if tun0 is present)
+#and if it's not present, reconnect it
+*/15 * * * * /root/programs/ipfire_scripts/openvpn/always-openvpn-cron.sh
+

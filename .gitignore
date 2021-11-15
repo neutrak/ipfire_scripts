@@ -1,3 +1,5 @@
 auth.txt
 .*.swp
+*.pyc
+__pycache__
 

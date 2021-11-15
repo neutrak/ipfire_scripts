@@ -1,4 +1,28 @@
+#NOTE: in ipfire rc.local is located at /etc/sysconfig/rc.local instead of the standard /etc/rc.local
+
+#BEGIN RTC
+#(if realtime clock hardware is present, uncomment the following lines)
+
+#realtime clock support
+#load modules for realtime clock
+#modprobe i2c-dev
+
+#register RTC module as new device
+#echo ds3231 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+
+#set the current system time based on hwclock status
+#since we don't know how long the machine might have been off for
+#hwclock -s
+
+#END RTC
+
+#prevent any accidental IP leaks by applying firewall rules to prevent forwarded non-VPN traffic
+/root/programs/ipfire_scripts/openvpn/always-openvpn-iptables.sh
+
+#automatic vpn connection shortly after startup
 modprobe tun
 sleep 120 && /root/programs/ipfire_scripts/openvpn/vpn_connect.sh &
+
+#automatically load and apply blocklist information
 sleep 300 && /root/programs/ipfire_scripts/firewall/load_blocklists.sh load &
 
