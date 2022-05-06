@@ -2,4 +2,5 @@ auth.txt
 .*.swp
 *.pyc
 __pycache__
+firewall/cache-blocklists
 

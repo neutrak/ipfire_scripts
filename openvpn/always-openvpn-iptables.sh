@@ -17,7 +17,7 @@ iptables -A CUSTOMFORWARD -o tun+ -j ACCEPT
 #as we want LAN traffic to continue to work as expected
 iptables -A CUSTOMFORWARD -o red+ -d 192.168.0.0/16 -j ACCEPT
 
-#for all other traffid destined for the WAN interface,
+#for all other traffic destined for the WAN interface,
 #hard drop it as it could leak information about where we are
 #and we don't want that
 iptables -A CUSTOMFORWARD -o red+ -j DROP
