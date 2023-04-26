@@ -821,3 +821,6 @@ googletagmanager.com
 d4uk.7h4uk.com
 cache.windowsdefenderhost.com
 
+#qualcomm tracking domains
+izatcloud.net
+
